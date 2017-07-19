@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/*! chameleon.css 0.1.0 | MIT License | http://davidringsdorf.de */
+
+/* basic */
+
+[data-style-colorscheme] {
+  --chameleon-lightest: #fff;
+  --chameleon-darkest: #000;
+}
+
+[data-style-colorscheme|="light"] {
+  background-color: #fff;
+  color: #000;
+  background-color: var(--chameleon-lightest, #fff);
+  color: var(--chameleon-darkest, #000);
+}
+
+[data-style-colorscheme|="dark"] {
+  background-color: #000;
+  color: #fff;
+  background-color: var(--chameleon-darkest, #000);
+  color: var(--chameleon-lightest, #fff);
+}
+
+/* flavor */
+
+@supports (--foo: bar) {
+
+  /* example */
+  [data-style-colorscheme="dark-night"] {
+      --chameleon-darkest: DarkBlue;
+  }
+
+  /* example */
+  [data-style-colorscheme="light-summer"] {
+      --chameleon-darkest: DarkGreen;
+      --chameleon-lightest: Yellow;
+  }
+}
